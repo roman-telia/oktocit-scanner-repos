@@ -8,10 +8,10 @@ const octokit = new Octokit({
 });
 
 async function fetchRepos() {
-  const response = await octokit.request(
-    "GET /search/repositories?q=@teliads/components+filename%3Apackage.json&type=Code",
-    {}
-  );
+  const response = await octokit.request("GET /search/repositories", {
+    q: 'teliads/components+filename=package.json',
+    org: "telia-company"
+  });
   console.log(response);
 }
 fetchRepos();
